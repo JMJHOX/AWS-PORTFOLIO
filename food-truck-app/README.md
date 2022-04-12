@@ -1,1 +1,1 @@
-![What is this](food-truck-app/imgs/app-db.png)
+![f](imgs/app-db.png)
