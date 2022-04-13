@@ -22,4 +22,29 @@ To provide high availability, we´ll be setting our RDS instance with Multi-AZ d
 
 ![f](imgs/FoodTruckArchJPG.001.jpeg)
 
+
+## Building our Infraestructure
+
+First, we´ll start by creating our VPC on AWS with VPC Wizard by the name "foodtruck-vpc"
+![f](imgs/vpc1.png)
+Within our VPC, we´ll create 2 subnets per Availability zone, a public subnet four our web app and a private subnet for our RDS.
+![f](imgs/vpc2.png)
+
+Now, we´ll create our S3 Bucket to be consumed by our web app. It´s gonna be set to "public" by the time.
+![f](imgs/bucket1.png)
+
+An important step on creating our bucket is bucket policy, we´ll be setting it can be retrieve our data on that bucket, but that´s it.
+![f](imgs/bucket3.png)
+
+Now we´ll upload our webapp.zip to be consumed on our EC2 to be updated correctly(for now).
+![f](imgs/bucket2.png)
+
+Second, we´ll launch our EC2 instance on our public subnet
+![f](imgs/ec2-instance1.png)
+
+We have to check for our security groups to be able to communicate using our web app and HTTP/HTTPS ports.
+![f](imgs/ec2-instance3.png)
+
+Remember to launch our RDS Instance on the private subnet
 ![f](imgs/app-db.png)
+For our last step, we´ll have to SSH our EC2 and install our app manually(on our nexxt proposal we´ll automate all of this, this is for learning purpose)
